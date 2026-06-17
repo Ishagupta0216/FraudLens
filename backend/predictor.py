@@ -37,7 +37,7 @@ class FraudPredictor:
 
     def ensure_model_files(self):
         missing_files = [
-            path for path in (MODEL_PATH, VECTORIZER_PATH) if not os.path.exists(path)
+            path for path in (MODEL_PATH, VECTORIZER_PATH) if not path.exists()
         ]
 
         if missing_files:
@@ -54,7 +54,7 @@ class FraudPredictor:
             return
 
         missing_files = [
-            path for path in (MODEL_PATH, VECTORIZER_PATH) if not os.path.exists(path)
+            path for path in (MODEL_PATH, VECTORIZER_PATH) if not path.exists()
         ]
         if missing_files:
             missing_names = ", ".join(path.name for path in missing_files)

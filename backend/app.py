@@ -1,14 +1,20 @@
 import json
+import logging
 import os
 
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 
-from predictor import FraudPredictor
+try:
+    from predictor import FraudPredictor
+except ModuleNotFoundError:
+    from .predictor import FraudPredictor
 
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 METRICS_PATH = os.path.join(BASE_DIR, "model", "metrics.json")
+
+logging.basicConfig(level=logging.INFO, format="%(message)s")
 
 app = Flask(__name__)
 CORS(app)
