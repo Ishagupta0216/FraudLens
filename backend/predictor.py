@@ -1,23 +1,53 @@
-import os
+import logging
 import pickle
+import subprocess
+import sys
+from pathlib import Path
 
-from utils import (
-    analyze_patterns,
-    build_explanation,
-    get_risk_level,
-    preprocess_text,
-)
+try:
+    from utils import (
+        analyze_patterns,
+        build_explanation,
+        get_risk_level,
+        preprocess_text,
+    )
+except ModuleNotFoundError:
+    from .utils import (
+        analyze_patterns,
+        build_explanation,
+        get_risk_level,
+        preprocess_text,
+    )
 
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-MODEL_PATH = os.path.join(BASE_DIR, "model", "model.pkl")
-VECTORIZER_PATH = os.path.join(BASE_DIR, "model", "vectorizer.pkl")
+logger = logging.getLogger(__name__)
+
+BASE_DIR = Path(__file__).resolve().parent
+MODEL_PATH = BASE_DIR / "model" / "model.pkl"
+VECTORIZER_PATH = BASE_DIR / "model" / "vectorizer.pkl"
+TRAIN_SCRIPT_PATH = BASE_DIR / "train.py"
 
 
 class FraudPredictor:
     def __init__(self):
         self.model = None
         self.vectorizer = None
+        self.ensure_model_files()
+        self.load_model()
+
+    def ensure_model_files(self):
+        missing_files = [
+            path for path in (MODEL_PATH, VECTORIZER_PATH) if not os.path.exists(path)
+        ]
+
+        if missing_files:
+            logger.info("Model not found. Training model...")
+            subprocess.run(
+                [sys.executable, str(TRAIN_SCRIPT_PATH)],
+                cwd=str(BASE_DIR),
+                check=True,
+            )
+            logger.info("Model training complete.")
 
     def load_model(self):
         if self.model is not None and self.vectorizer is not None:
@@ -27,9 +57,10 @@ class FraudPredictor:
             path for path in (MODEL_PATH, VECTORIZER_PATH) if not os.path.exists(path)
         ]
         if missing_files:
-            missing_names = ", ".join(os.path.basename(path) for path in missing_files)
+            missing_names = ", ".join(path.name for path in missing_files)
             raise FileNotFoundError(f"Missing model artifact(s): {missing_names}")
 
+        logger.info("Loading model...")
         with open(MODEL_PATH, "rb") as model_file:
             self.model = pickle.load(model_file)
 
