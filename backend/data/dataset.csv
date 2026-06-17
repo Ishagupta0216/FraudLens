@@ -1,0 +1,46 @@
+text,label,category
+Your KYC will expire today verify immediately,1,KYC Scam
+Complete KYC verification now or account will be blocked,1,KYC Scam
+KYC update pending click link to verify,1,KYC Scam
+Your bank KYC has expired update immediately,1,KYC Scam
+Complete your kyc to keep wallet active,1,KYC Scam
+Claim your cashback reward now verify account,1,Reward Scam
+You won a lottery prize click to receive money,1,Reward Scam
+Congratulations bonus reward waiting in your wallet,1,Reward Scam
+Free gift voucher verify details now,1,Reward Scam
+Win instant cashback by confirming your UPI details,1,Reward Scam
+Your account will be blocked today login immediately,1,Account Blocking Scam
+Bank account suspended verify identity to restore access,1,Account Blocking Scam
+UPI wallet disabled due to suspicious activity click link,1,Account Blocking Scam
+Account hold placed confirm password to unblock,1,Account Blocking Scam
+Your payment account will freeze update details urgently,1,Account Blocking Scam
+Verify your identity to receive pending payment,1,Fake Verification Scam
+Fake verification pending validate your mobile number,1,Fake Verification Scam
+Confirm identity and OTP to continue transaction,1,Fake Verification Scam
+Verification failed login with password now,1,Fake Verification Scam
+Validate bank details through secure link,1,Fake Verification Scam
+Urgent action required click here to login,1,Generic Phishing
+Share OTP to approve refund immediately,1,Generic Phishing
+Password reset requested click link today,1,Generic Phishing
+Suspicious login detected confirm details now,1,Generic Phishing
+UPI refund pending share otp to process,1,Generic Phishing
+Paid to grocery store via UPI,0,Legitimate
+Received salary from employer bank transfer,0,Legitimate
+UPI payment to electricity board successful,0,Legitimate
+Dinner payment completed to restaurant,0,Legitimate
+Monthly rent paid to landlord using UPI,0,Legitimate
+Recharge successful for mobile number,0,Legitimate
+Payment received from friend for lunch,0,Legitimate
+Transferred money to savings account,0,Legitimate
+Paid school fees through net banking,0,Legitimate
+Cab fare paid successfully using UPI,0,Legitimate
+Your order payment was successful,0,Legitimate
+Refund processed for cancelled train ticket,0,Legitimate
+Credit card bill payment completed,0,Legitimate
+Insurance premium paid successfully,0,Legitimate
+Wallet top up completed from bank account,0,Legitimate
+Movie ticket payment successful,0,Legitimate
+Payment received for freelance invoice,0,Legitimate
+Donation sent to registered charity,0,Legitimate
+Water bill paid through UPI,0,Legitimate
+Subscription renewal payment completed,0,Legitimate

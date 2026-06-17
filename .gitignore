@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual Environments
+venv/
+venv311/
+.venv/
+env/
+
+# Model Files
+backend/model/*.pkl
+backend/model/*.joblib
+
+# User Data
+backend/history.json
+
+# Python Build Files
+build/
+dist/
+*.egg-info/
+
+# Node
+node_modules/
+
+# Vite
+frontend/dist/
+
+# Environment Variables
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Generated metrics
+backend/model/metrics.json
